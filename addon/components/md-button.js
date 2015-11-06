@@ -32,7 +32,11 @@ var MdButtonComponent = Ember.Component.extend(LayoutRules, RipplesMixin, {
     }),
 
     click() {
-        this.sendAction('action', this.get('param'));
+		if(this.get('param2')) {
+			this.sendAction('action', this.get('param'), this.get('param2'));
+        } else {
+			this.sendAction('action', this.get('param'));
+		}
     }
 
 });
